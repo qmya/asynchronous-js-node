@@ -35,10 +35,31 @@ const getDogPic = async () => {
     console.log('Random dog image saved to the file');
   } catch (err) {
     console.log(err.message);
+    throw err;
   }
+  return '2: READY 🐶';
 };
+(async () => {
+  try {
+    console.log('1: Will get dog pics'); //'2: READY 🐶'
+    const x = await getDogPic();
+    console.log(x);
+    console.log('3: Done getting dog pics');
+  } catch (error) {
+    console.log('ERROR 🧨');
+  }
+})();
 
-getDogPic();
+// console.log('1: Will get dog pics');
+// getDogPic()
+//   .then((x) => {
+//     console.log(x); //'2: READY 🐶'
+//     console.log('3: Done getting dog pics');
+//   })
+//   .catch((err) => {
+//     console.log('ERROR 🧨');
+//   });
+
 //Using Promises
 // readFilePro(`${__dirname}/dog.txt`)
 //   .then((data) => {
